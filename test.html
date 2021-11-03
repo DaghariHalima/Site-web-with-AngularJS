@@ -1,0 +1,59 @@
+<html>
+   <head>
+      <title>Angular JS Table</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+      <script>
+        var mainApp = angular.module("mainApp", []);
+        
+        mainApp.controller('studentController', function($scope) {
+           $scope.femme = {
+              
+              
+              liste:[
+                 {name:'Physics',marks:70},
+                 {name:'Chemistry',marks:80},
+                 {name:'Math',marks:65},
+                 {name:'English',marks:75},
+                 {name:'Hindi',marks:67}
+              ],
+              
+           };
+        });
+     </script>
+      
+      <style>
+         table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+         }
+         table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+         }
+         table tr:nth-child(even) {
+            background-color: #ffffff;
+         }
+      </style>
+   </head>
+   
+   <body>
+      <div ng-app = "mainApp" ng-controller = "studentController">
+         <table >
+            <tr>
+                <td>Id</td>
+               <td>Subject</td>  
+               <td> samar</td>
+            </tr>
+            <tr ng-repeat = "femme in femme.liste">
+                <td>{{ $index + 1 }}</td>
+               <td>{{ femme.name }}</td>
+               <td>{{ femme.marks }}</td>
+            </tr>
+         </table>
+      </div>
+      
+      
+      
+   </body>
+</html>
